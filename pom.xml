@@ -8,8 +8,7 @@
     <artifactId>SocketTraining</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
-    <name>SocketServer</name>
-    <url>http://www.example.com</url>
+    <name>SocketTraining</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -56,7 +55,7 @@
                                 <mainClass>org.example.o7planning.Server</mainClass>
                             </manifest>
                         </archive>
-                        <finalName>server</finalName>
+                        <finalName>socket</finalName>
                     </configuration>
                 </plugin>
                 <plugin>

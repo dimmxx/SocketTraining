@@ -3,6 +3,7 @@ package org.example.o7planning;
 import java.io.*;
 import java.net.Socket;
 import java.net.UnknownHostException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Client {
@@ -27,32 +28,21 @@ public static void main(String[] args) {
            System.err.println("Couldn't get I/O for the connection to " + serverHost);
            return;
        }
+    Scanner scanner = new Scanner(System.in);
 
        try {
 
-           //Scanner scanner = new Scanner(System.in);
-           //String line = scanner.nextLine();
+           while (true){
+               String line = scanner.nextLine();
 
-           // Write data to the output stream of the Client Socket.
-           os.write("line");
-           // End of line
-           os.newLine();
-           // Flush data.
-          os.flush();
-
-
-           os.write("QUIT");
-           os.newLine();
-           os.flush();
-
-           // Read data sent from the server.
-           // By reading the input stream of the Client Socket.
-           String responseLine;
-           while ((responseLine = is.readLine()) != null) {
-               System.out.println("Server: " + responseLine);
-               if (responseLine.indexOf("OK") != -1) {
+               if(Objects.equals(line, "quitttt")){
                    break;
                }
+
+               os.write(line);
+               os.newLine();
+               os.flush();
+
            }
 
            os.close();

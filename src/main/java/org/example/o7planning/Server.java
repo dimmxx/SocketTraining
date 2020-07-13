@@ -3,6 +3,7 @@ package org.example.o7planning;
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Objects;
 
 public class Server {
 
@@ -31,22 +32,14 @@ public class Server {
             is = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
             os = new BufferedWriter(new OutputStreamWriter(serverSocket.getOutputStream()));
 
-            int i = 0;
 
-            while (true) {
-                System.out.println(i);
-                i++;
-                line = is.readLine();
-                System.out.println("server's inputstream: " + line);
-                os.write(">>> " + line);
-                os.newLine();
-                os.flush();
-
-                if (line.equals("QUIT")) {
-                    os.write(">>> OK");
-                    os.newLine();
-                    os.flush();
-                    break;
+            boolean finish = false;
+            while (!finish) {
+                while (is.ready() && ((line = is.readLine()) != null)) {
+                    if(Objects.equals(line.toLowerCase().trim(), "quit")){
+                        finish = true;
+                    }
+                    System.out.println("server has received: " + line);
                 }
             }
         } catch (IOException e) {

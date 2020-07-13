@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.032" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="org.example.AppTest" time="0.037" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="awt.toolkit" value="sun.lwawt.macosx.LWCToolkit"/>
     <property name="java.specification.version" value="12"/>
@@ -13,7 +13,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="UA"/>
     <property name="sun.boot.library.path" value="/Library/Java/JavaVirtualMachines/jdk-12.0.1.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/mint/JavaProjects/maven/SocketTraining/target/surefire/surefirebooter9816988237780229098.jar /Users/mint/JavaProjects/maven/SocketTraining/target/surefire 2020-07-13T12-37-30_738-jvmRun1 surefire1982381408543401125tmp surefire_0969946177439501606tmp"/>
+    <property name="sun.java.command" value="/Users/mint/JavaProjects/maven/SocketTraining/target/surefire/surefirebooter2651384449097197303.jar /Users/mint/JavaProjects/maven/SocketTraining/target/surefire 2020-07-13T16-39-41_377-jvmRun1 surefire14125651358897305361tmp surefire_04077799420278905654tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/mint/JavaProjects/maven/SocketTraining/target/test-classes:/Users/mint/JavaProjects/maven/SocketTraining/target/classes:/Users/mint/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/mint/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:"/>
@@ -30,7 +30,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.CGraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="/Users/mint/JavaProjects/maven/SocketTraining/target/surefire/surefirebooter9816988237780229098.jar"/>
+    <property name="surefire.real.class.path" value="/Users/mint/JavaProjects/maven/SocketTraining/target/surefire/surefirebooter2651384449097197303.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="12.0.1+12"/>
@@ -55,5 +55,5 @@
     <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="56.0"/>
   </properties>
-  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0.002"/>
+  <testcase name="shouldAnswerWithTrue" classname="org.example.AppTest" time="0.003"/>
 </testsuite>
