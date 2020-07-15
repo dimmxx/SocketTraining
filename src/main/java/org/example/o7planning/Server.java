@@ -32,16 +32,16 @@ public class Server {
             is = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
             os = new BufferedWriter(new OutputStreamWriter(serverSocket.getOutputStream()));
 
-
-            boolean finish = false;
-            while (!finish) {
-                while (is.ready() && ((line = is.readLine()) != null)) {
+                while ((line = is.readLine()) != null) {
                     if(Objects.equals(line.toLowerCase().trim(), "quit")){
-                        finish = true;
+                        break;
                     }
                     System.out.println("server has received: " + line);
+                    os.write(">>>> " + line);
+                    os.newLine();
+                    os.flush();
                 }
-            }
+
         } catch (IOException e) {
             e.printStackTrace();
         }
