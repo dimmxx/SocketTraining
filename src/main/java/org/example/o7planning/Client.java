@@ -15,6 +15,7 @@ public class Client {
         Socket clientSocket = null;
         BufferedWriter os = null;
         BufferedReader is = null;
+        String response = null;
 
         try {
             clientSocket = new Socket(serverHost, 9999);
@@ -27,22 +28,26 @@ public class Client {
             System.err.println("Couldn't get I/O for the connection to " + serverHost);
             return;
         }
+
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
         Scanner scanner = new Scanner(System.in);
         boolean finish = false;
 
         try {
             while (!finish) {
-                String line = scanner.nextLine();
-                String response = null;
+                System.out.print("Enter your message: ");
+                String line = scanner.next();
+                //String line = bufferedReader.readLine();
                 if (Objects.equals(line, "quit")) {
                     finish = true;
                 }
                 os.write(line);
                 os.newLine();
                 os.flush();
+                System.out.print(" (pushed to server)");
 
-                while (is.ready() && (response = is.readLine()) != null) {
-                    System.out.println("server response: " + response);
+                if ((response = is.readLine()) != null) {
+                    System.out.println("Server's response: " + response);
                 }
             }
             os.close();

@@ -1,20 +1,19 @@
 package org.example.o7planning;
 
-import java.io.*;
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Server {
 
-    public static void main(String[] args) {
+    protected static volatile List<ServerThread> threads = new ArrayList<>();
+    protected static volatile int clientNumber = 0;
+
+    public static void main(String[] args) throws IOException {
 
         ServerSocket listener = null;
-        Socket serverSocket = null;
-
-        String line;
-        BufferedReader is;
-        BufferedWriter os;
 
         try {
             listener = new ServerSocket(9999);
@@ -25,26 +24,16 @@ public class Server {
         }
 
         try {
-            System.out.println("Server: server is listening to accept user ...");
-            serverSocket = listener.accept();
-            System.out.println("Server: a client is accepted");
+            while (true) {
+                Socket socket = listener.accept();
+                ServerThread thread = new ServerThread(socket, clientNumber);
+                threads.add(thread);
+                System.out.println("Client " + clientNumber + " connected");
+                clientNumber++;
+            }
 
-            is = new BufferedReader(new InputStreamReader(serverSocket.getInputStream()));
-            os = new BufferedWriter(new OutputStreamWriter(serverSocket.getOutputStream()));
-
-                while ((line = is.readLine()) != null) {
-                    if(Objects.equals(line.toLowerCase().trim(), "quit")){
-                        break;
-                    }
-                    System.out.println("server has received: " + line);
-                    os.write(">>>> " + line);
-                    os.newLine();
-                    os.flush();
-                }
-
-        } catch (IOException e) {
-            e.printStackTrace();
+        } finally {
+            listener.close();
         }
-        System.out.println("Server: server is stopped");
     }
 }
