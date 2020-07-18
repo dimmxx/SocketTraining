@@ -1,4 +1,4 @@
-package org.example.o7planning;
+package org.example.chat;
 
 import java.io.*;
 import java.net.Socket;
@@ -73,20 +73,19 @@ public class ServerThread extends Thread {
     @Override
     public void run() {
 
-
-
-
-
         try {
+
+            writer.write("Please tell your name: ");
+            writer.newLine();
+            writer.flush();
+            clientName = reader.readLine();
+
+            distributeMessage(Server.responseHeaderBuilder(clientName) + clientName + " joined [client " + clientNumber + "]");
+
             while ((line = reader.readLine()) != null) {
 
+                distributeMessage(line);
                 System.out.println("server has received from Client " + clientNumber + " " + line);
-                for (ServerThread thread : Server.threads) {
-
-                    thread.getWriter().write("Client " + clientNumber + " said: " + line);
-                    thread.getWriter().newLine();
-                    thread.getWriter().flush();
-                }
 
 
                 if (Objects.equals(line.toLowerCase().trim(), "quit")) {
@@ -103,5 +102,15 @@ public class ServerThread extends Thread {
         }
         System.out.println("Server: server is stopped");
     }
+
+    private void distributeMessage(String message) throws IOException {
+        for (ServerThread thread : Server.threads) {
+            thread.getWriter().write(message);
+            thread.getWriter().newLine();
+            thread.getWriter().flush();
+        }
+    }
+
+
 }
 

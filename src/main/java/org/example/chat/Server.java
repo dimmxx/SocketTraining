@@ -1,8 +1,9 @@
-package org.example.o7planning;
+package org.example.chat;
 
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,4 +37,12 @@ public class Server {
             listener.close();
         }
     }
+
+    public static String responseHeaderBuilder(String clientName){
+        LocalDateTime dateTime = LocalDateTime.now();
+        return dateTime.toString() + " | ";
+    }
+
+
+
 }
