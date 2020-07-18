@@ -1,3 +1,4 @@
-/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/o7planning/Client.java
-/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/o7planning/ServerThread.java
-/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/o7planning/Server.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/Client.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/ClientReadThread.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/ServerThread.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/Server.java

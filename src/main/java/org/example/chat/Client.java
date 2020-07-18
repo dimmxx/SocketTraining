@@ -32,7 +32,6 @@ public class Client {
         }
 
         ClientReadThread clientReadThread = new ClientReadThread(socketReader);
-
         consoleReader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
@@ -63,4 +62,9 @@ public class Client {
             System.err.println("IOException:  " + e);
         }
     }
+
+    private void acquaintClient(){
+
+    }
+
 }

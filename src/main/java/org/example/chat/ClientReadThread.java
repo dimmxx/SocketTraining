@@ -11,7 +11,7 @@ public class ClientReadThread extends Thread{
 
     public ClientReadThread(BufferedReader socketReader) {
         this.socketReader = socketReader;
-        start();
+        this.start();
     }
 
     @Override

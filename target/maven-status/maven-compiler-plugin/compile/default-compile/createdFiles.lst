@@ -1,3 +1,4 @@
-org/example/o7planning/ServerThread.class
-org/example/o7planning/Client.class
-org/example/o7planning/Server.class
+org/example/chat/ClientReadThread.class
+org/example/chat/Server.class
+org/example/chat/ServerThread.class
+org/example/chat/Client.class
