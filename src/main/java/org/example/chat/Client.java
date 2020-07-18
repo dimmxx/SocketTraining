@@ -31,18 +31,18 @@ public class Client {
             return;
         }
 
+        ClientReadThread clientReadThread = new ClientReadThread(socketReader);
+
         consoleReader = new BufferedReader(new InputStreamReader(System.in));
 
         try {
-            System.out.println(reader.readLine());
+
             clientName = consoleReader.readLine();
             writer.write(clientName);
             writer.newLine();
             writer.flush();
 
             while (!finish) {
-
-
 
                 System.out.print("You: ");
                 String line = consoleReader.readLine();
@@ -55,7 +55,7 @@ public class Client {
 
             }
             writer.close();
-            reader.close();
+            socketReader.close();
             clientSocket.close();
         } catch (UnknownHostException e) {
             System.err.println("Trying to connect to unknown host: " + e);
