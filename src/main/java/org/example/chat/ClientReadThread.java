@@ -21,12 +21,9 @@ public class ClientReadThread extends Thread{
                 if ((response = socketReader.readLine()) != null) {
                     System.out.println(response);
                 }
-
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
     }
 }

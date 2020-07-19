@@ -20,7 +20,7 @@ public class Server {
 
         try {
             listener = new ServerSocket(9999);
-            System.out.println("Server: listener created");
+            System.out.println("Server: listener created. Waiting for connections...");
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(1);
@@ -46,7 +46,4 @@ public class Server {
                 + " | from "
                 + clientName + ": ";
     }
-
-
-
 }

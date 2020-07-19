@@ -52,10 +52,10 @@
                     <configuration>
                         <archive>
                             <manifest>
-                                <mainClass>org.example.chat.Server</mainClass>
+                                <mainClass>org.example.chat.Client</mainClass>
                             </manifest>
                         </archive>
-                        <finalName>server</finalName>
+                        <finalName>client</finalName>
                     </configuration>
                 </plugin>
                 <plugin>

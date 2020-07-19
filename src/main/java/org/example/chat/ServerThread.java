@@ -91,10 +91,6 @@ public class ServerThread extends Thread {
                 if (Objects.equals(line.toLowerCase().trim(), "quit")) {
                     break;
                 }
-
-                //writer.write(">>>> " + line);
-                //writer.newLine();
-                // writer.flush();
             }
 
         } catch (IOException e) {
@@ -105,12 +101,12 @@ public class ServerThread extends Thread {
 
     private void distributeMessage(String message) throws IOException {
         for (ServerThread thread : Server.threads) {
-            thread.getWriter().write(message);
-            thread.getWriter().newLine();
-            thread.getWriter().flush();
+            if (thread != this) {
+                thread.getWriter().write(message);
+                thread.getWriter().newLine();
+                thread.getWriter().flush();
+            }
         }
     }
-
-
 }
 

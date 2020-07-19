@@ -39,7 +39,7 @@ public class Client {
 
             while (!finish) {
 
-                //System.out.print("You: ");
+
                 String line = consoleReader.readLine();
                 if (Objects.equals(line, "quit")) {
                     finish = true;
