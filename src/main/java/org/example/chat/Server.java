@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,7 +42,9 @@ public class Server {
 
     public static String responseHeaderBuilder(String clientName){
         LocalDateTime dateTime = LocalDateTime.now();
-        return dateTime.toString() + " | ";
+        return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(dateTime)
+                + " | from "
+                + clientName + ": ";
     }
 
 

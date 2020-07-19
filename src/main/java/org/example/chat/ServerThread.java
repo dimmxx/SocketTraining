@@ -84,7 +84,7 @@ public class ServerThread extends Thread {
 
             while ((line = reader.readLine()) != null) {
 
-                distributeMessage(line);
+                distributeMessage(Server.responseHeaderBuilder(clientName) + line);
                 System.out.println("server has received from Client " + clientNumber + " " + line);
 
 
