@@ -12,7 +12,8 @@ import java.util.List;
 public class Server {
 
     protected static volatile List<ServerThread> threads = new ArrayList<>();
-    protected static volatile int clientNumber = 0;
+    private static volatile List<String> messageLog = new ArrayList<>();
+    private static volatile int clientNumber = 0;
 
     public static void main(String[] args) throws IOException {
 
@@ -45,5 +46,19 @@ public class Server {
         return DateTimeFormatter.ISO_LOCAL_DATE_TIME.format(dateTime)
                 + " | from "
                 + clientName + ": ";
+    }
+
+    public static void addMessageToLog(String message){
+        messageLog.add(message);
+    }
+
+    public static List<String> getMessageLog (int historyLength){
+        List<String> messagesList = new ArrayList<>();
+        if(!(messageLog.size() - historyLength <= 0)){
+            for(int i = messageLog.size() - historyLength; i < messageLog.size(); i++){
+                messagesList.add(messageLog.get(i));
+            }
+        }else return messageLog;
+        return messagesList;
     }
 }

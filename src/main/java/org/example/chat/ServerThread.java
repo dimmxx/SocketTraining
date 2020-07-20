@@ -80,7 +80,11 @@ public class ServerThread extends Thread {
             writer.flush();
             clientName = reader.readLine();
 
-            distributeMessage(Server.responseHeaderBuilder(clientName) + clientName + " joined [client " + clientNumber + "]");
+            String entranceMessage = Server.responseHeaderBuilder(clientName) + clientName + " joined [client " + clientNumber + "]";
+            Server.addMessageToLog(entranceMessage);
+            for(String message : Server.getMessageLog(5)){
+                distributeMessage(message);
+            }
 
             while ((line = reader.readLine()) != null) {
 
