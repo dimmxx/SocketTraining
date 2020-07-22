@@ -1,4 +1,4 @@
-/home/dima/JavaProjects/SocketTraining/src/main/java/org/example/chat/Server.java
-/home/dima/JavaProjects/SocketTraining/src/main/java/org/example/chat/ClientReadThread.java
-/home/dima/JavaProjects/SocketTraining/src/main/java/org/example/chat/Client.java
-/home/dima/JavaProjects/SocketTraining/src/main/java/org/example/chat/ServerThread.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/Client.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/ClientReadThread.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/ServerThread.java
+/Users/mint/JavaProjects/maven/SocketTraining/src/main/java/org/example/chat/Server.java

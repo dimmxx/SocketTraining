@@ -74,7 +74,6 @@ public class ServerThread extends Thread {
     public void run() {
 
         try {
-
             writer.write("Please tell your name: ");
             writer.newLine();
             writer.flush();
@@ -88,7 +87,10 @@ public class ServerThread extends Thread {
 
             while ((line = reader.readLine()) != null) {
 
-                distributeMessage(Server.responseHeaderBuilder(clientName) + line);
+                String message = Server.responseHeaderBuilder(clientName) + line;
+
+                distributeMessage(message);
+                Server.addMessageToLog(message);
                 System.out.println("server has received from Client " + clientNumber + " " + line);
 
 
@@ -105,11 +107,11 @@ public class ServerThread extends Thread {
 
     private void distributeMessage(String message) throws IOException {
         for (ServerThread thread : Server.threads) {
-            if (thread != this) {
+            //if (thread != this) {
                 thread.getWriter().write(message);
                 thread.getWriter().newLine();
                 thread.getWriter().flush();
-            }
+            //}
         }
     }
 }
